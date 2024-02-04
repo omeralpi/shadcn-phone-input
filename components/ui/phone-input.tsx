@@ -1,38 +1,37 @@
+import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+
+import * as React from "react";
+
+import * as RPNInput from "react-phone-number-input";
+import * as RPNInputSimple from "react-phone-number-input/input";
+
+import flags from "react-phone-number-input/flags";
+
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 import { Input, InputProps } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-import React from "react";
-import ReactPhoneNumberInput, {
-  Props as ReactPhoneNumberInputProps,
-  Country as CountryCode,
-  getCountryCallingCode,
-  DefaultInputComponentProps,
-  FlagProps,
-} from "react-phone-number-input";
-import flags from "react-phone-number-input/flags";
-import ReactPhoneNumberInputSimple, {
-  Props as ReactPhoneNumberInputSimpleProps,
-} from "react-phone-number-input/input";
-import { Button } from "./button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "./command";
 
-const PhoneInputSimple = React.forwardRef<
-  React.ElementRef<typeof ReactPhoneNumberInputSimple>,
-  React.ComponentPropsWithoutRef<typeof ReactPhoneNumberInputSimple> &
-    ReactPhoneNumberInputSimpleProps<DefaultInputComponentProps>
->(({ className, children, ...props }, ref) => (
-  <ReactPhoneNumberInputSimple ref={ref} placeholder="Enter phone number" inputComponent={Input} {...props} />
-));
+import { cn } from "@/lib/utils";
+
+type PhoneInputSimpleProps = React.ComponentProps<typeof RPNInputSimple.default>;
+
+const PhoneInputSimple = ({ className, children, ...props }: PhoneInputSimpleProps) => (
+  <RPNInputSimple.default placeholder="Enter phone number" inputComponent={Input} {...props} />
+);
 PhoneInputSimple.displayName = "PhoneInputSimple";
 
-const PhoneInput = React.forwardRef<
-  React.ElementRef<typeof ReactPhoneNumberInput>,
-  React.ComponentPropsWithoutRef<typeof ReactPhoneNumberInput> &
-    ReactPhoneNumberInputProps<DefaultInputComponentProps>
->(({ className, children, ...props }, ref) => (
-  <ReactPhoneNumberInput
-    ref={ref}
+type PhoneInputProps = React.ComponentProps<typeof RPNInput.default>;
+
+const PhoneInput = ({ className, children, ...props }: PhoneInputProps) => (
+  <RPNInput.default
     className={cn("flex", className)}
     placeholder="Enter phone number"
     flagComponent={Flag}
@@ -40,50 +39,29 @@ const PhoneInput = React.forwardRef<
     inputComponent={InputCountry}
     {...props}
   />
-));
+);
 PhoneInput.displayName = "PhoneInput";
 
-const InputCountry = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => (
-  <Input {...props} ref={ref} className={cn(props.className, "rounded-s-none rounded-e-lg")} />
+const InputCountry = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => (
+  <Input className={cn("rounded-s-none rounded-e-lg", className)} {...props} ref={ref} />
 ));
 
-type CountrySelectItemOption = { label: string; value: CountryCode };
-
-const CountrySelectItem = React.forwardRef<
-  React.ElementRef<typeof CommandItem>,
-  React.ComponentPropsWithoutRef<typeof CommandItem> & {
-    option: CountrySelectItemOption;
-    isSelected: boolean;
-  }
->(({ className, option, onSelect, isSelected, ...props }, ref) => (
-  <CommandItem ref={ref} className={cn("text-sm gap-2", className)} onSelect={onSelect} {...props}>
-    <Flag country={option.value} countryName={option.label} />
-    <span>{option.label}</span>
-    <span className="text-foreground/50">{`+${getCountryCallingCode(option.value)}`}</span>
-    <CheckIcon className={`ml-auto h-4 w-4 ${isSelected ? "opacity-100" : "opacity-0"}`} />
-  </CommandItem>
-));
+type CountrySelectOption = { label: string; value: RPNInput.Country };
 
 type CountrySelectProps = {
   disabled?: boolean;
-  value: CountryCode;
-  onChange: (value: CountryCode) => void;
-  options: CountrySelectItemOption[];
+  value: RPNInput.Country;
+  onChange: (value: RPNInput.Country) => void;
+  options: CountrySelectOption[];
 };
 
 const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProps) => {
-  const renderOptions = () => {
-    return options
-      .filter((x) => x.value)
-      .map((option) => (
-        <CountrySelectItem
-          key={option.value}
-          onSelect={() => onChange(option.value)}
-          option={option}
-          isSelected={option.value === value}
-        />
-      ));
-  };
+  const handleSelect = React.useCallback(
+    (country: RPNInput.Country) => {
+      onChange(country);
+    },
+    [onChange],
+  );
 
   return (
     <Popover>
@@ -107,7 +85,26 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
           <CommandList>
             <CommandInput placeholder="Search country..." />
             <CommandEmpty>No country found.</CommandEmpty>
-            <CommandGroup>{renderOptions()}</CommandGroup>
+            <CommandGroup>
+              {options
+                .filter((x) => x.value)
+                .map((option) => (
+                  <CommandItem
+                    className={"text-sm gap-2"}
+                    key={option.value}
+                    onSelect={() => handleSelect(option.value)}
+                  >
+                    <Flag country={option.value} countryName={option.label} />
+                    <span>{option.label}</span>
+                    <span className="text-foreground/50">
+                      {`+${RPNInput.getCountryCallingCode(option.value)}`}
+                    </span>
+                    <CheckIcon
+                      className={`ml-auto h-4 w-4 ${option.value === value ? "opacity-100" : "opacity-0"}`}
+                    />
+                  </CommandItem>
+                ))}
+            </CommandGroup>
           </CommandList>
         </Command>
       </PopoverContent>
@@ -115,7 +112,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
   );
 };
 
-const Flag = ({ country, countryName }: FlagProps) => {
+const Flag = ({ country, countryName }: RPNInput.FlagProps) => {
   const CountryFlag = flags[country];
 
   return (
