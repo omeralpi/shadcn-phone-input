@@ -21,10 +21,12 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 
 import { cn } from "@/lib/utils";
 
+export type PhoneInputValue = RPNInput.Value;
+
 type PhoneInputSimpleProps = React.ComponentProps<typeof RPNInputSimple.default>;
 
 const PhoneInputSimple = ({ className, children, ...props }: PhoneInputSimpleProps) => (
-  <RPNInputSimple.default placeholder="Enter phone number" inputComponent={Input} {...props} />
+  <RPNInputSimple.default placeholder="Enter a phone number" inputComponent={Input} {...props} />
 );
 PhoneInputSimple.displayName = "PhoneInputSimple";
 
@@ -33,16 +35,17 @@ type PhoneInputProps = React.ComponentProps<typeof RPNInput.default>;
 const PhoneInput = ({ className, children, ...props }: PhoneInputProps) => (
   <RPNInput.default
     className={cn("flex", className)}
-    placeholder="Enter phone number"
-    flagComponent={Flag}
+    placeholder={"Enter a phone number"}
+    flagComponent={FlagComponent}
     countrySelectComponent={CountrySelect}
-    inputComponent={InputCountry}
+    inputComponent={InputComponent}
     {...props}
   />
 );
+
 PhoneInput.displayName = "PhoneInput";
 
-const InputCountry = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => (
+const InputComponent = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => (
   <Input className={cn("rounded-s-none rounded-e-lg", className)} {...props} ref={ref} />
 ));
 
@@ -74,7 +77,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
         >
           <span className="flex items-center truncate">
             <div className="bg-foreground/20 rounded-sm flex w-6 h-4">
-              {value && <Flag country={value} countryName={value} />}
+              {value && <FlagComponent country={value} countryName={value} />}
             </div>
           </span>
           <ChevronsUpDown className={`h-4 w-4 ${disabled ? "hidden" : ""}`} />
@@ -94,7 +97,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                     key={option.value}
                     onSelect={() => handleSelect(option.value)}
                   >
-                    <Flag country={option.value} countryName={option.label} />
+                    <FlagComponent country={option.value} countryName={option.label} />
                     <span>{option.label}</span>
                     <span className="text-foreground/50">
                       {`+${RPNInput.getCountryCallingCode(option.value)}`}
@@ -112,12 +115,12 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
   );
 };
 
-const Flag = ({ country, countryName }: RPNInput.FlagProps) => {
-  const CountryFlag = flags[country];
+const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
+  const Flag = flags[country];
 
   return (
     <span className={"inline object-contain w-6 h-4 overflow-hidden rounded-sm"}>
-      {CountryFlag && <CountryFlag title={countryName} />}
+      {Flag && <Flag title={countryName} />}
     </span>
   );
 };
