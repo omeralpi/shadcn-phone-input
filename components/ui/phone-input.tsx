@@ -1,4 +1,4 @@
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+import { CheckIcon, ChevronsUpDown } from "lucide-react";
 
 import * as React from "react";
 
@@ -77,7 +77,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
               {value && <Flag country={value} countryName={value} />}
             </div>
           </span>
-          <CaretSortIcon className={`${disabled ? "hidden" : ""}`} />
+          <ChevronsUpDown className={`h-4 w-4 ${disabled ? "hidden" : ""}`} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[300px] p-0">
