@@ -30,17 +30,21 @@ const PhoneInputSimple = ({ className, children, ...props }: PhoneInputSimplePro
 );
 PhoneInputSimple.displayName = "PhoneInputSimple";
 
-type PhoneInputProps = React.ComponentProps<typeof RPNInput.default>;
+type PhoneInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> &
+  RPNInput.Props<typeof RPNInput.default>;
 
-const PhoneInput = ({ className, children, ...props }: PhoneInputProps) => (
-  <RPNInput.default
-    className={cn("flex", className)}
-    placeholder={"Enter a phone number"}
-    flagComponent={FlagComponent}
-    countrySelectComponent={CountrySelect}
-    inputComponent={InputComponent}
-    {...props}
-  />
+const PhoneInput = React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
+  ({ className, ...props }, ref) => (
+    <RPNInput.default
+      ref={ref}
+      className={cn("flex", className)}
+      placeholder={"Enter a phone number"}
+      flagComponent={FlagComponent}
+      countrySelectComponent={CountrySelect}
+      inputComponent={InputComponent}
+      {...props}
+    />
+  ),
 );
 
 PhoneInput.displayName = "PhoneInput";
