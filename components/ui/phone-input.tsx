@@ -3,7 +3,6 @@ import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import * as React from "react";
 
 import * as RPNInput from "react-phone-number-input";
-import * as RPNInputSimple from "react-phone-number-input/input";
 
 import flags from "react-phone-number-input/flags";
 
@@ -23,29 +22,23 @@ import { cn } from "@/lib/utils";
 
 export type PhoneInputValue = RPNInput.Value;
 
-type PhoneInputSimpleProps = React.ComponentProps<typeof RPNInputSimple.default>;
-
-const PhoneInputSimple = ({ className, children, ...props }: PhoneInputSimpleProps) => (
-  <RPNInputSimple.default placeholder="Enter a phone number" inputComponent={Input} {...props} />
-);
-PhoneInputSimple.displayName = "PhoneInputSimple";
-
 type PhoneInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> &
   RPNInput.Props<typeof RPNInput.default>;
 
-const PhoneInput = React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
-  ({ className, ...props }, ref) => (
-    <RPNInput.default
-      ref={ref}
-      className={cn("flex", className)}
-      placeholder={"Enter a phone number"}
-      flagComponent={FlagComponent}
-      countrySelectComponent={CountrySelect}
-      inputComponent={InputComponent}
-      {...props}
-    />
-  ),
-);
+const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwardRef<
+  React.ElementRef<typeof RPNInput.default>,
+  PhoneInputProps
+>(({ className, ...props }, ref) => (
+  <RPNInput.default
+    ref={ref}
+    placeholder={"Enter a phone number"}
+    className={cn("flex", className)}
+    flagComponent={FlagComponent}
+    countrySelectComponent={CountrySelect}
+    inputComponent={InputComponent}
+    {...props}
+  />
+));
 
 PhoneInput.displayName = "PhoneInput";
 
@@ -129,4 +122,4 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   );
 };
 
-export { PhoneInput, PhoneInputSimple };
+export { PhoneInput };
