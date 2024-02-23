@@ -28,7 +28,7 @@ export default function Variants() {
         <div className="w-full">
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">Summary</h3>
           <div className="preview flex min-h-[200px] w-full justify-center p-10 items-center mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md border">
-            <PhoneInput value={phoneNumber} onChange={setPhoneNumber} />
+            <PhoneInput value={phoneNumber} onChange={setPhoneNumber} placeholder="Enter a phone number" />
           </div>
         </div>
         <div className="w-full">
@@ -36,7 +36,12 @@ export default function Variants() {
             Setting default country
           </h3>
           <div className="preview flex min-h-[200px] w-full justify-center p-10 items-center mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md border">
-            <PhoneInput value={phoneNumber} onChange={setPhoneNumber} defaultCountry="TR" />
+            <PhoneInput
+              value={phoneNumber}
+              onChange={setPhoneNumber}
+              defaultCountry="TR"
+              placeholder="Enter a phone number"
+            />
           </div>
         </div>
         <div className="w-full">
@@ -70,6 +75,7 @@ export default function Variants() {
               onChange={setPhoneNumber}
               international={false}
               defaultCountry="TR"
+              placeholder="Enter a phone number"
             />
           </div>
         </div>
@@ -78,7 +84,12 @@ export default function Variants() {
             initialValueFormat
           </h3>
           <div className="preview flex min-h-[200px] w-full justify-center p-10 items-center mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md border">
-            <PhoneInput value={phoneNumber} onChange={setPhoneNumber} initialValueFormat="national" />
+            <PhoneInput
+              value={phoneNumber}
+              onChange={setPhoneNumber}
+              initialValueFormat="national"
+              placeholder="Enter a phone number"
+            />
           </div>
         </div>
         <div className="w-full">
@@ -87,7 +98,12 @@ export default function Variants() {
           </h3>
           <div className="preview flex min-h-[200px] w-full justify-center p-10 items-center mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md border">
             <div>
-              <PhoneInput value={phoneNumber} onChange={setPhoneNumber} onCountryChange={setCountry} />
+              <PhoneInput
+                value={phoneNumber}
+                onChange={setPhoneNumber}
+                onCountryChange={setCountry}
+                placeholder="Enter a phone number"
+              />
               <div className="mt-4 text-sm space-y-2">
                 <div>National: {phoneNumber && formatPhoneNumber(phoneNumber)}</div>
                 <div>International: {phoneNumber && formatPhoneNumberIntl(phoneNumber)}</div>

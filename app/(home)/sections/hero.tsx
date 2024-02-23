@@ -24,6 +24,9 @@ const FormSchema = z.object({
 export default function Hero() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    defaultValues: {
+      phone: "",
+    },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -78,7 +81,7 @@ export default function Hero() {
                     <FormItem className="flex flex-col items-start">
                       <FormLabel className="text-left">Phone Number</FormLabel>
                       <FormControl className="w-full">
-                        <PhoneInput {...field} />
+                        <PhoneInput placeholder="Enter a phone number" {...field} />
                       </FormControl>
                       <FormDescription className="text-left">Enter a phone number</FormDescription>
                       <FormMessage />
