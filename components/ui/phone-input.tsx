@@ -80,18 +80,14 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
         <Button
           type="button"
           variant={"outline"}
-          className={cn("rounded-e-none rounded-s-lg pl-3 pr-1 flex gap-1")}
+          className={cn("flex gap-1 rounded-e-none rounded-s-lg pr-1 pl-3")}
           disabled={disabled}
         >
-          <span className="flex items-center truncate">
-            <div className="bg-foreground/20 rounded-sm flex w-6 h-4">
-              {value && <FlagComponent country={value} countryName={value} />}
-            </div>
-          </span>
-          <ChevronsUpDown className={`h-4 w-4 ${disabled ? "hidden" : ""}`} />
+          <FlagComponent country={value} countryName={value} />
+          <ChevronsUpDown className={cn("h-4 w-4 opacity-50", disabled ? "hidden" : "opacity-100")} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
+      <PopoverContent className="p-0 w-[300px]">
         <Command>
           <CommandList>
             <CommandInput placeholder="Search country..." />
@@ -101,17 +97,19 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                 .filter((x) => x.value)
                 .map((option) => (
                   <CommandItem
-                    className={"text-sm gap-2"}
+                    className="gap-2"
                     key={option.value}
                     onSelect={() => handleSelect(option.value)}
                   >
                     <FlagComponent country={option.value} countryName={option.label} />
-                    <span>{option.label}</span>
-                    <span className="text-foreground/50">
-                      {`+${RPNInput.getCountryCallingCode(option.value)}`}
-                    </span>
+                    <span className="text-sm flex-1">{option.label}</span>
+                    {option.value && (
+                      <span className="text-sm text-foreground/50">
+                        {`+${RPNInput.getCountryCallingCode(option.value)}`}
+                      </span>
+                    )}
                     <CheckIcon
-                      className={`ml-auto h-4 w-4 ${option.value === value ? "opacity-100" : "opacity-0"}`}
+                      className={cn("ml-auto h-4 w-4", option.value === value ? "opacity-100" : "opacity-0")}
                     />
                   </CommandItem>
                 ))}
@@ -127,7 +125,7 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
 
   return (
-    <span className={"inline object-contain w-6 h-4 overflow-hidden rounded-sm"}>
+    <span className="flex h-4 w-6 overflow-hidden rounded-sm bg-foreground/20">
       {Flag && <Flag title={countryName} />}
     </span>
   );
