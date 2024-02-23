@@ -13,7 +13,7 @@ import tr from "react-phone-number-input/locale/tr";
 
 export default function Variants() {
   const [country, setCountry] = useState<Country>();
-  const [phoneNumber, setPhoneNumber] = useState<Value>();
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   return (
     <section id="variants" className="max-w-5xl w-full py-8">
