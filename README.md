@@ -43,6 +43,9 @@ const FormSchema = z.object({
 export default function Hero() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    defaultValues: {
+      phone: "",
+    },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -60,7 +63,8 @@ export default function Hero() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 flex flex-col items-start">
+        className="space-y-8 flex flex-col items-start"
+      >
         <FormField
           control={form.control}
           name="phone"
