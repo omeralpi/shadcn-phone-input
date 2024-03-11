@@ -1,8 +1,7 @@
-import { PhoneInput } from "@/components/ui/phone-input";
+import { PhoneInput, type PhoneNumberValue } from "@/components/ui/phone-input";
 import React, { useState } from "react";
 import {
   Country,
-  Value,
   formatPhoneNumber,
   formatPhoneNumberIntl,
   getCountryCallingCode,
@@ -11,7 +10,7 @@ import tr from "react-phone-number-input/locale/tr";
 
 export default function Variants() {
   const [country, setCountry] = useState<Country>();
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState<PhoneNumberValue>();
 
   return (
     <section id="variants" className="max-w-5xl w-full py-8">
