@@ -63,8 +63,7 @@ export default function Hero() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 flex flex-col items-start"
-      >
+        className="space-y-8 flex flex-col items-start">
         <FormField
           control={form.control}
           name="phone"
@@ -86,6 +85,19 @@ export default function Hero() {
     </Form>
   );
 }
+```
+
+## Other Examples
+
+### Optional Phone Input
+
+```tsx
+const FormSchema = z.object({
+  phone: z
+    .string()
+    .refine(isValidPhoneNumber, { message: "Invalid phone number" })
+    .or(z.literal("")),
+});
 ```
 
 ## Documentation
