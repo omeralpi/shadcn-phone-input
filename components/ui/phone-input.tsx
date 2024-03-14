@@ -80,11 +80,11 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
         <Button
           type="button"
           variant={"outline"}
-          className={cn("flex gap-1 rounded-e-none rounded-s-lg pr-1 pl-3")}
+          className={cn("flex gap-1 rounded-e-none rounded-s-lg px-3")}
           disabled={disabled}
         >
           <FlagComponent country={value} countryName={value} />
-          <ChevronsUpDown className={cn("h-4 w-4 opacity-50", disabled ? "hidden" : "opacity-100")} />
+          <ChevronsUpDown className={cn("h-4 w-4 opacity-50 -mr-2", disabled ? "hidden" : "opacity-100")} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0 w-[300px]">
