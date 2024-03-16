@@ -16,6 +16,9 @@ I decided to make one myself. I hope you find it useful!
 This component is designed to handle phone inputs in your application. It
 includes the option to select a country along with the phone input.
 
+> [!WARNING] 
+> Before you dive in, just double-check that you're using version 2.0.1 of the cmdk package!
+
 ```tsx
 import { Button } from "@/components/ui/button";
 import {
