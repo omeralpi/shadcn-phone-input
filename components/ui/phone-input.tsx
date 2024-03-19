@@ -75,7 +75,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
   );
 
   return (
-    <Popover>
+    <Popover modal>
       <PopoverTrigger asChild>
         <Button
           type="button"
