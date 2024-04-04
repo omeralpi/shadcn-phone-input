@@ -97,7 +97,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                 .filter((x) => x.value)
                 .map((option) => (
                   <CommandItem
-                  className="gap-2 data-[disabled=false]:pointer-events-auto data-[disabled=false]:opacity-100 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50"
+                  className="gap-2 data-[disabled=false]:pointer-events-auto data-[disabled=false]:opacity-100 data-[disabled=true]:pointer-events-none data-[disabled]:opacity-100"
                   key={option.value}
                     onSelect={() => handleSelect(option.value)}
                   >
