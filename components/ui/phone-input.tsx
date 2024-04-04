@@ -97,8 +97,8 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                 .filter((x) => x.value)
                 .map((option) => (
                   <CommandItem
-                    className="gap-2"
-                    key={option.value}
+                  className="gap-2 data-[disabled=false]:pointer-events-auto data-[disabled=false]:opacity-100 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50"
+                  key={option.value}
                     onSelect={() => handleSelect(option.value)}
                   >
                     <FlagComponent country={option.value} countryName={option.label} />
