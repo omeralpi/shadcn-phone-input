@@ -93,12 +93,12 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
             <CommandInput placeholder="Search country..." />
             <CommandEmpty>No country found.</CommandEmpty>
             <CommandGroup>
-              {options
+              <CommandList>{options
                 .filter((x) => x.value)
                 .map((option) => (
                   <CommandItem
-                    className="gap-2"
-                    key={option.value}
+                  className="gap-2 data-[disabled=false]:pointer-events-auto data-[disabled=false]:opacity-100 data-[disabled=true]:pointer-events-none data-[disabled]:opacity-100"
+                  key={option.value}
                     onSelect={() => handleSelect(option.value)}
                   >
                     <FlagComponent country={option.value} countryName={option.label} />
@@ -112,7 +112,8 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                       className={cn("ml-auto h-4 w-4", option.value === value ? "opacity-100" : "opacity-0")}
                     />
                   </CommandItem>
-                ))}
+                ))}</CommandList>
+              
             </CommandGroup>
           </CommandList>
         </Command>
