@@ -93,7 +93,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
             <CommandInput placeholder="Search country..." />
             <CommandEmpty>No country found.</CommandEmpty>
             <CommandGroup>
-              {options
+              <CommandList>{options
                 .filter((x) => x.value)
                 .map((option) => (
                   <CommandItem
@@ -112,7 +112,8 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
                       className={cn("ml-auto h-4 w-4", option.value === value ? "opacity-100" : "opacity-0")}
                     />
                   </CommandItem>
-                ))}
+                ))}</CommandList>
+              
             </CommandGroup>
           </CommandList>
         </Command>
