@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "plugins": ["@typescript-eslint", "tailwindcss"],
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "rules": {
+    "@next/next/no-html-link-for-pages": "off",
+    "react/jsx-key": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "off",
+    "tailwindcss/enforces-shorthand": "off",
+    "tailwindcss/no-unnecessary-arbitrary-value": "off"
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn", "cva"],
+      "config": "./tailwind.config.ts",
+      "classRegex": "^(class(Name)?|tw)$"
+    },
+    "next": {
+      "rootDir": "./"
+    }
+  }
+}
