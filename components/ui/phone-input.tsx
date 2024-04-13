@@ -91,7 +91,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
       <PopoverContent className="p-0 w-[300px]">
         <Command>
           <CommandList>
-            <ScrollArea className="h-72 w-full rounded-md">
+            <ScrollArea className="h-72">
               <CommandInput placeholder="Search country..." />
               <CommandEmpty>No country found.</CommandEmpty>
               <CommandGroup>
