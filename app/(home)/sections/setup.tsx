@@ -1,13 +1,18 @@
 import CodeBlock from "@/components/code-block";
 import { Snippet } from "@/components/snippet";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Snippet as SnippetType, allSnippets } from "contentlayer/generated";
 
 const snippets: SnippetType[] = allSnippets.sort((a, b) => a.order - b.order);
 
 export default function Setup() {
   return (
-    <section id="setup" className="max-w-5xl w-full py-8">
+    <section id="setup" className="w-full max-w-5xl py-8">
       <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
         Setup
       </h2>
@@ -15,20 +20,20 @@ export default function Setup() {
         <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
           Install Shadcn via CLI
         </h3>
-        <p className="leading-7 [&amp;:not(:first-child)]:mt-6 text-normal">
+        <p className="[&amp;:not(:first-child)]:mt-6 text-normal leading-7">
           Run the{" "}
           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             shadcn-ui
           </code>{" "}
           init command to setup your project:
         </p>
-        <CodeBlock value={"npx shadcn-ui@latest init"} className="mt-2" />
+        <CodeBlock value="npx shadcn-ui@latest init" className="mt-2" />
       </div>
       <div className="w-full">
         <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
           Install necessary Shadcn components:
         </h3>
-        <p className="leading-7 [&amp;:not(:first-child)]:mt-6 text-normal">
+        <p className="[&amp;:not(:first-child)]:mt-6 text-normal leading-7">
           Run the{" "}
           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             shadcn-ui
@@ -46,10 +51,13 @@ export default function Setup() {
         <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
           Install necessary React Phone Number Input package:
         </h3>
-        <CodeBlock value={"npm install react-phone-number-input"} className="mt-2" />
+        <CodeBlock
+          value={"npm install react-phone-number-input"}
+          className="mt-2"
+        />
       </div>
       <div className="w-full">
-        <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight pb-2">
+        <h3 className="font-heading mt-8 scroll-m-20 pb-2 text-lg font-semibold tracking-tight">
           To use the phone input component:
         </h3>
         {/* <ul className="list-decimal list-outside ml-5 marker:text-muted-foreground space-y-3 text-sm">

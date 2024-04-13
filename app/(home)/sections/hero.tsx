@@ -18,7 +18,9 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import { z } from "zod";
 
 const FormSchema = z.object({
-  phone: z.string().refine(isValidPhoneNumber, { message: "Invalid phone number" }),
+  phone: z
+    .string()
+    .refine(isValidPhoneNumber, { message: "Invalid phone number" }),
 });
 
 export default function Hero() {
@@ -42,13 +44,16 @@ export default function Hero() {
 
   return (
     <>
-      <section className="z-10 max-w-5xl w-full flex flex-col items-center text-center gap-5">
-        <div className="z-10 w-full flex flex-col items-center text-center gap-5">
-          <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">Shadcn Phone Input</h1>
-          <p className="text-muted-foreground max-w-[450px]">
-            An implementation of a Phone Input component built on top of Shadcn UI&apos;s input component.
+      <section className="z-10 flex w-full max-w-5xl flex-col items-center gap-5 text-center">
+        <div className="z-10 flex w-full flex-col items-center gap-5 text-center">
+          <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+            Shadcn Phone Input
+          </h1>
+          <p className="max-w-[450px] text-muted-foreground">
+            An implementation of a Phone Input component built on top of Shadcn
+            UI&apos;s input component.
           </p>
-          <div className="flex gap-2 mt-1">
+          <div className="mt-1 flex gap-2">
             <Link
               href="#try"
               className={`${buttonVariants({
@@ -71,26 +76,38 @@ export default function Hero() {
         </div>
 
         <div id="try" className="w-full py-8">
-          <div className="w-full relative my-4 flex flex-col space-y-2">
-            <div className="preview flex min-h-[350px] w-full justify-center p-10 items-start mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md border">
+          <div className="relative my-4 flex w-full flex-col space-y-2">
+            <div className="preview relative mt-2 flex min-h-[350px] w-full items-start justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col items-start">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="flex flex-col items-start space-y-8"
+                >
                   <FormField
                     control={form.control}
                     name="phone"
                     render={({ field }) => (
                       <FormItem className="flex flex-col items-start">
-                        <FormLabel className="text-left">Phone Number</FormLabel>
+                        <FormLabel className="text-left">
+                          Phone Number
+                        </FormLabel>
                         <FormControl className="w-full">
-                          <PhoneInput placeholder="Enter a phone number" {...field} />
+                          <PhoneInput
+                            placeholder="Enter a phone number"
+                            {...field}
+                          />
                         </FormControl>
-                        <FormDescription className="text-left">Enter a phone number</FormDescription>
+                        <FormDescription className="text-left">
+                          Enter a phone number
+                        </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                   <pre>
-                    <code className="text-foreground">{JSON.stringify(form.watch("phone"), null, 2)}</code>
+                    <code className="text-foreground">
+                      {JSON.stringify(form.watch("phone"), null, 2)}
+                    </code>
                   </pre>
                   <Button type="submit">Submit</Button>
                 </form>

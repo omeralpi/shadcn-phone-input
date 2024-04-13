@@ -29,10 +29,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Omer Alpi",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -57,7 +53,12 @@ export default function RootLayout({
   return (
     <html className="smooth-scroll" lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
         <Analytics />

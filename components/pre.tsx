@@ -3,7 +3,11 @@ import { Check, Copy } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
 
-export default function Pre({ children, className, ...props }: React.HTMLAttributes<HTMLPreElement>) {
+export default function Pre({
+  children,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLPreElement>) {
   const [copied, setCopied] = React.useState(false);
   const ref = React.useRef<HTMLPreElement>(null);
 
@@ -28,11 +32,11 @@ export default function Pre({ children, className, ...props }: React.HTMLAttribu
   };
 
   return (
-    <div className="relative overflow-auto max-h-[500px]">
+    <div className="relative max-h-[500px] overflow-auto">
       <Button
         variant="ghost"
         className={cn(
-          `absolute top-4 right-4 bg-transparent p-0 h-8 w-8 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
+          `absolute right-4 top-4 h-8 w-8 bg-transparent p-0 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
           copied && "text-foreground",
         )}
         onClick={onClick}
@@ -42,7 +46,7 @@ export default function Pre({ children, className, ...props }: React.HTMLAttribu
       <pre
         ref={ref}
         className={cn(
-          "border border-border rounded-lg p-4 text-sm overflow-auto text-white/80 bg-zinc-950 dark:bg-zinc-900",
+          "overflow-auto rounded-lg border border-border bg-zinc-950 p-4 text-sm text-white/80 dark:bg-zinc-900",
           className,
         )}
         {...props}
