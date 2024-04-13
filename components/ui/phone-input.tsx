@@ -19,6 +19,7 @@ import { Input, InputProps } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 import { cn } from "@/lib/utils";
+import { ScrollArea } from "./scroll-area";
 
 type PhoneInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "value"> &
   Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
@@ -90,30 +91,32 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
       <PopoverContent className="p-0 w-[300px]">
         <Command>
           <CommandList>
-            <CommandInput placeholder="Search country..." />
-            <CommandEmpty>No country found.</CommandEmpty>
-            <CommandGroup>
-              {options
-                .filter((x) => x.value)
-                .map((option) => (
-                  <CommandItem
-                    className="gap-2"
-                    key={option.value}
-                    onSelect={() => handleSelect(option.value)}
-                  >
-                    <FlagComponent country={option.value} countryName={option.label} />
-                    <span className="text-sm flex-1">{option.label}</span>
-                    {option.value && (
-                      <span className="text-sm text-foreground/50">
-                        {`+${RPNInput.getCountryCallingCode(option.value)}`}
-                      </span>
-                    )}
-                    <CheckIcon
-                      className={cn("ml-auto h-4 w-4", option.value === value ? "opacity-100" : "opacity-0")}
-                    />
-                  </CommandItem>
-                ))}
-            </CommandGroup>
+            <ScrollArea className="h-72">
+              <CommandInput placeholder="Search country..." />
+              <CommandEmpty>No country found.</CommandEmpty>
+              <CommandGroup>
+                {options
+                  .filter((x) => x.value)
+                  .map((option) => (
+                    <CommandItem
+                      className="gap-2"
+                      key={option.value}
+                      onSelect={() => handleSelect(option.value)}
+                    >
+                      <FlagComponent country={option.value} countryName={option.label} />
+                      <span className="text-sm flex-1">{option.label}</span>
+                      {option.value && (
+                        <span className="text-sm text-foreground/50">
+                          {`+${RPNInput.getCountryCallingCode(option.value)}`}
+                        </span>
+                      )}
+                      <CheckIcon
+                        className={cn("ml-auto h-4 w-4", option.value === value ? "opacity-100" : "opacity-0")}
+                      />
+                    </CommandItem>
+                  ))}
+              </CommandGroup>
+            </ScrollArea>
           </CommandList>
         </Command>
       </PopoverContent>
