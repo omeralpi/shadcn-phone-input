@@ -84,6 +84,7 @@ type CountrySelectProps = {
   value: RPNInput.Country;
   onChange: (value: RPNInput.Country) => void;
   options: CountrySelectOption[];
+  className: "";
 };
 
 const CountrySelect = ({
@@ -91,6 +92,7 @@ const CountrySelect = ({
   value,
   onChange,
   options,
+  className
 }: CountrySelectProps) => {
   const handleSelect = React.useCallback(
     (country: RPNInput.Country) => {
@@ -105,7 +107,7 @@ const CountrySelect = ({
         <Button
           type="button"
           variant={"outline"}
-          className={cn("flex gap-1 rounded-e-none rounded-s-lg px-3")}
+          className={cn("flex gap-1 rounded-e-none rounded-s-lg px-3", className)}
           disabled={disabled}
         >
           <FlagComponent country={value} countryName={value} />
