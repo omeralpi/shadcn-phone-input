@@ -84,8 +84,8 @@ dependencies:
     specifier: ^7.51.3
     version: 7.51.3(react@18.2.0)
   react-phone-number-input:
-    specifier: ^3.3.12
-    version: 3.3.12(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^3.4.1
+    version: 3.4.1(react-dom@18.2.0)(react@18.2.0)
   tailwind-merge:
     specifier: ^2.2.2
     version: 2.2.2
@@ -4561,8 +4561,8 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /libphonenumber-js@1.10.60:
-    resolution: {integrity: sha512-Ctgq2lXUpEJo5j1762NOzl2xo7z7pqmVWYai0p07LvAkQ32tbPv3wb+tcUeHEiXhKU5buM4H9MXsXo6OlM6C2g==}
+  /libphonenumber-js@1.10.61:
+    resolution: {integrity: sha512-TsQsyzDttDvvzWNkbp/i0fVbzTGJIG0mUu/uNalIaRQEYeJxVQ/FPg+EJgSqfSXezREjM0V3RZ8cLVsKYhhw0Q==}
     dev: false
 
   /lilconfig@2.1.0:
@@ -5688,8 +5688,8 @@ packages:
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  /react-phone-number-input@3.3.12(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-hEZpEp9vpKWNq71aS2MobQDStIwlgFZPbIAFzywpe+tWWq5CV16J4tdE9N2yrLKSI5TTgmZ6emf0v1ojOORImA==}
+  /react-phone-number-input@3.4.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-guuenZqU/DYvDBFzFdTrppC4rs+q5ybTFHrxEo9VGvX0pPLWM4ZXlRa0llT7LRAvfxX8RjQNnQkkCiTHTzhLZA==}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
@@ -5697,7 +5697,7 @@ packages:
       classnames: 2.5.1
       country-flag-icons: 1.5.11
       input-format: 0.3.10
-      libphonenumber-js: 1.10.60
+      libphonenumber-js: 1.10.61
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
