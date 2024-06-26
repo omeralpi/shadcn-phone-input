@@ -15,7 +15,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Input, InputProps } from "@/components/ui/input";
+import { Input, type InputProps } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
@@ -30,7 +30,7 @@ type PhoneInputProps = Omit<
   "onChange" | "value"
 > &
   Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
-    onChange?: (value: RPNInput.Value) => void;
+    onChange?: (value: RPNInput.Value | string) => void;
   };
 
 const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
