@@ -44,13 +44,12 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.7",
     "@types/node": "20.12.7",
     "@types/react": "18.2.78",
     "@types/react-dom": "18.2.25",
+    "@types/eslint": "^8.56.7",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
-    "autoprefixer": "10.4.19",
     "eslint": "^8.41.0",
     "eslint-config-next": "^14.1.4",
     "eslint-config-prettier": "^9.1.0",
@@ -58,6 +57,7 @@
     "postcss": "8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.13",
+    "autoprefixer": "10.4.19",
     "rehype": "^13.0.1",
     "rehype-pretty-code": "^0.13.1",
     "shiki": "^1.3.0",
