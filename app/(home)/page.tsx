@@ -2,7 +2,10 @@
 import Hero from "@/app/(home)/sections/hero";
 import Setup from "@/app/(home)/sections/setup";
 import { ModeToggle } from "@/components/mode-toggle";
+import { SvgIcons } from "@/components/svg-icons";
+import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
+import Link from "next/link";
 import Variants from "./sections/variants";
 
 export default function Home() {
@@ -50,6 +53,19 @@ export default function Home() {
             </a>
             .
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-center">
+            <div className="text-sm text-muted-foreground">Also available:</div>
+            <Link
+              href="https://shadcn-vue-phone-input.vercel.app"
+              className={buttonVariants({
+                size: "sm",
+              })}
+              target="_blank"
+            >
+              <SvgIcons.vue className="mr-2 size-5" />
+              Shadcn Vue Phone Input
+            </Link>
+          </div>
         </div>
       </footer>
     </>

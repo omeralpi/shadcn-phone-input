@@ -50,8 +50,8 @@ export default function Hero() {
             Shadcn Phone Input
           </h1>
           <p className="max-w-[450px] text-muted-foreground">
-            An implementation of a Phone Input component built on top of Shadcn
-            UI&apos;s input component.
+            An implementation of a Phone Input component for <b>React</b>, built
+            on top of Shadcn UI&apos;s input component.
           </p>
           <div className="mt-1 flex gap-2">
             <Link

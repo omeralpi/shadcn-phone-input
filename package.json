@@ -39,7 +39,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.51.3",
-    "react-phone-number-input": "^3.3.12",
+    "react-phone-number-input": "^3.4.5",
     "tailwind-merge": "^2.2.2",
     "zod": "^3.22.4"
   },
