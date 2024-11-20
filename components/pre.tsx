@@ -36,17 +36,17 @@ export default function Pre({
       <Button
         variant="ghost"
         className={cn(
-          `absolute right-4 top-4 h-8 w-8 bg-transparent p-0 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
+          `absolute right-4 top-4 size-8 bg-transparent p-0 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
           copied && "text-foreground",
         )}
         onClick={onClick}
       >
-        {!copied ? <Copy className="h-3 w-3" /> : <Check className="h-3 w-3" />}
+        {!copied ? <Copy className="size-3" /> : <Check className="size-3" />}
       </Button>
       <pre
         ref={ref}
         className={cn(
-          "overflow-auto rounded-lg border border-border bg-zinc-950 p-4 text-sm text-white/80 dark:bg-zinc-900",
+          "border-border overflow-auto rounded-lg border bg-zinc-950 p-4 text-sm text-white/80 dark:bg-zinc-900",
           className,
         )}
         {...props}

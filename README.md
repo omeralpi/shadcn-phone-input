@@ -16,7 +16,7 @@ I decided to make one myself. I hope you find it useful!
 This component is designed to handle phone inputs in your application. It
 includes the option to select a country along with the phone input.
 
-> [!WARNING] 
+> [!WARNING]
 > Before you dive in, just double-check that you're using version 1.0.0 of the cmdk package!
 
 ```tsx
@@ -66,7 +66,8 @@ export default function Hero() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 flex flex-col items-start">
+        className="flex flex-col items-start space-y-8"
+      >
         <FormField
           control={form.control}
           name="phone"

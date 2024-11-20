@@ -49,7 +49,7 @@ export default function Hero() {
           <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
             Shadcn Phone Input
           </h1>
-          <p className="max-w-[450px] text-muted-foreground">
+          <p className="text-muted-foreground max-w-[450px]">
             An implementation of a Phone Input component for <b>React</b>, built
             on top of Shadcn UI&apos;s input component.
           </p>
@@ -77,7 +77,7 @@ export default function Hero() {
 
         <div id="try" className="w-full py-8">
           <div className="relative my-4 flex w-full flex-col space-y-2">
-            <div className="preview relative mt-2 flex min-h-[350px] w-full items-start justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+            <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[350px] w-full items-start justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
