@@ -7,10 +7,9 @@
     "build": "contentlayer build && next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit",
     "lint:fix": "next lint --fix",
-    "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
     "prepare": "husky"
   },
   "dependencies": {
@@ -73,6 +72,13 @@
     "unist-util-visit": "^5.0.0"
   },
   "lint-staged": {
-    "*": "prettier -w --ignore-unknown"
+    "*.+(js|jsx|ts|tsx)": [
+      "prettier --write",
+      "eslint --fix",
+      "eslint"
+    ],
+    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+      "prettier --write"
+    ]
   }
 }
