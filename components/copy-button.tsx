@@ -35,7 +35,7 @@ export default function CopyButton({
       aria-label="Copy code"
       variant="ghost"
       className={cn(
-        `absolute right-3 top-[0.6rem] z-50 flex h-8 w-8 items-center justify-center rounded-md p-0 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
+        `absolute right-3 top-[0.6rem] z-50 flex size-8 items-center justify-center rounded-md p-0 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
       )}
     >
       <MotionConfig transition={{ duration: 0.15 }}>
@@ -48,7 +48,7 @@ export default function CopyButton({
               key="check"
               variants={variants}
             >
-              <Check className="h-3 w-3" />
+              <Check className="size-3" />
             </motion.div>
           ) : (
             <motion.div
@@ -58,7 +58,7 @@ export default function CopyButton({
               key="copy"
               variants={variants}
             >
-              <Copy className="h-3 w-3" />
+              <Copy className="size-3" />
             </motion.div>
           )}
         </AnimatePresence>
