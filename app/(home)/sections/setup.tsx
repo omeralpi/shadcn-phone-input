@@ -22,7 +22,7 @@ export default function Setup() {
         </h3>
         <p className="text-normal leading-7 [&:not(:first-child)]:mt-6">
           Run the{" "}
-          <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             shadcn-ui
           </code>{" "}
           init command to setup your project:
@@ -35,7 +35,7 @@ export default function Setup() {
         </h3>
         <p className="text-normal leading-7 [&:not(:first-child)]:mt-6">
           Run the{" "}
-          <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             shadcn-ui
           </code>{" "}
           add command to add the necessary shadcn components to your project:

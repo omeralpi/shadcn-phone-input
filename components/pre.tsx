@@ -46,7 +46,7 @@ export default function Pre({
       <pre
         ref={ref}
         className={cn(
-          "border-border overflow-auto rounded-lg border bg-zinc-950 p-4 text-sm text-white/80 dark:bg-zinc-900",
+          "overflow-auto rounded-lg border border-border bg-zinc-950 p-4 text-sm text-white/80 dark:bg-zinc-900",
           className,
         )}
         {...props}

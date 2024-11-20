@@ -28,7 +28,7 @@ export default function Variants() {
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
             Summary
           </h3>
-          <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
             <PhoneInput
               value={phoneNumber}
               onChange={setPhoneNumber}
@@ -40,7 +40,7 @@ export default function Variants() {
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
             Setting default country
           </h3>
-          <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
             <PhoneInput
               value={phoneNumber}
               onChange={setPhoneNumber}
@@ -53,7 +53,7 @@ export default function Variants() {
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
             Internationalization
           </h3>
-          <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
             <PhoneInput
               value={phoneNumber}
               onChange={setPhoneNumber}
@@ -66,7 +66,7 @@ export default function Variants() {
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
             Force international format
           </h3>
-          <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
             <PhoneInput
               value={phoneNumber}
               onChange={setPhoneNumber}
@@ -79,7 +79,7 @@ export default function Variants() {
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
             Force national format
           </h3>
-          <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
             <PhoneInput
               value={phoneNumber}
               onChange={setPhoneNumber}
@@ -93,7 +93,7 @@ export default function Variants() {
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
             initialValueFormat
           </h3>
-          <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
             <PhoneInput
               value={phoneNumber}
               onChange={setPhoneNumber}
@@ -106,7 +106,7 @@ export default function Variants() {
           <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
             Formatting value
           </h3>
-          <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
             <div>
               <PhoneInput
                 value={phoneNumber}

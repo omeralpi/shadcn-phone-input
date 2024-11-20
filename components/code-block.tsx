@@ -20,7 +20,7 @@ function CodeBlock({
     <pre
       style={{ maxHeight: "500px", overflowY: "auto" }}
       className={cn(
-        `} relative size-full whitespace-pre-wrap rounded-lg border bg-zinc-950 p-4 text-sm text-white/75 dark:bg-zinc-900 `,
+        `relative size-full whitespace-pre-wrap rounded-lg border bg-zinc-950 p-4 text-sm text-white/75 dark:bg-zinc-900`,
         className,
       )}
     >
