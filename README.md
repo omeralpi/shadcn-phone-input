@@ -16,10 +16,15 @@ I decided to make one myself. I hope you find it useful!
 This component is designed to handle phone inputs in your application. It
 includes the option to select a country along with the phone input.
 
-> [!WARNING] 
+> [!WARNING]
 > Before you dive in, just double-check that you're using version 1.0.0 of the cmdk package!
 
 ```tsx
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { isValidPhoneNumber } from "react-phone-number-input";
+import { z } from "zod";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -32,10 +37,6 @@ import {
 } from "@/components/ui/form";
 import { PhoneInput } from "@/components/ui/phone-input";
 import { toast } from "@/components/ui/use-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { isValidPhoneNumber } from "react-phone-number-input";
-import { z } from "zod";
 
 const FormSchema = z.object({
   phone: z
@@ -66,7 +67,8 @@ export default function Hero() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 flex flex-col items-start">
+        className="flex flex-col items-start space-y-8"
+      >
         <FormField
           control={form.control}
           name="phone"

@@ -1,9 +1,10 @@
 "use client";
 
-import { useMDXComponent } from "next-contentlayer/hooks";
 import React from "react";
-import Pre from "./pre";
+import { useMDXComponent } from "next-contentlayer/hooks";
+
 import type { Snippet as SnippetType } from ".contentlayer/generated";
+import Pre from "./pre";
 
 const components = {
   pre: Pre,

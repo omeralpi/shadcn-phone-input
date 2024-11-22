@@ -20,7 +20,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 8.7.4
+          version: 9.14.2
 
       - name: Get pnpm store directory
         id: pnpm-cache

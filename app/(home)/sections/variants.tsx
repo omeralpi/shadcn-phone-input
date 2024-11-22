@@ -1,4 +1,3 @@
-import { PhoneInput } from "@/components/ui/phone-input";
 import { useState } from "react";
 import {
   Country,
@@ -7,6 +6,8 @@ import {
   getCountryCallingCode,
 } from "react-phone-number-input";
 import tr from "react-phone-number-input/locale/tr";
+
+import { PhoneInput } from "@/components/ui/phone-input";
 
 export default function Variants() {
   const [country, setCountry] = useState<Country>();
@@ -21,7 +22,7 @@ export default function Variants() {
         <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
           With country
         </h3>
-        <p className="[&amp;:not(:first-child)]:mt-6 text-normal leading-7">
+        <p className="text-normal leading-7 [&:not(:first-child)]:mt-6">
           The phone input component can be used with a country select dropdown.
         </p>
         <div className="w-full">

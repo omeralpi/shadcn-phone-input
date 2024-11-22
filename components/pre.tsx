@@ -1,6 +1,8 @@
-import { cn } from "@/lib/utils";
-import { Check, Copy } from "lucide-react";
 import React from "react";
+import { Check, Copy } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
 import { Button } from "./ui/button";
 
 export default function Pre({
@@ -36,12 +38,12 @@ export default function Pre({
       <Button
         variant="ghost"
         className={cn(
-          `absolute right-4 top-4 h-8 w-8 bg-transparent p-0 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
+          `absolute right-4 top-4 size-8 bg-transparent p-0 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50`,
           copied && "text-foreground",
         )}
         onClick={onClick}
       >
-        {!copied ? <Copy className="h-3 w-3" /> : <Check className="h-3 w-3" />}
+        {!copied ? <Copy className="size-3" /> : <Check className="size-3" />}
       </Button>
       <pre
         ref={ref}
