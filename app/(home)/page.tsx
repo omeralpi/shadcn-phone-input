@@ -1,11 +1,14 @@
 "use client";
+
+import Link from "next/link";
+
 import Hero from "@/app/(home)/sections/hero";
 import Setup from "@/app/(home)/sections/setup";
 import { ModeToggle } from "@/components/mode-toggle";
 import { SvgIcons } from "@/components/svg-icons";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-import Link from "next/link";
+
 import Variants from "./sections/variants";
 
 export default function Home() {
@@ -23,14 +26,14 @@ export default function Home() {
             <h3 className="mb-6 whitespace-nowrap font-medium">On this page</h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <a href="#setup" className="text-muted-foreground font-light">
+                <a href="#setup" className="font-light text-muted-foreground">
                   Setup
                 </a>
               </li>
               <li>
                 <a
                   href="#variants"
-                  className="text-muted-foreground font-light"
+                  className="font-light text-muted-foreground"
                 >
                   Variants
                 </a>
@@ -41,7 +44,7 @@ export default function Home() {
       </div>
       <footer className="border-t py-6 md:px-8 md:py-0">
         <div className="container flex max-w-5xl flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-muted-foreground text-center text-sm leading-loose md:text-left">
+          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
             Built by{" "}
             <a
               href={siteConfig.links.twitter}
@@ -54,7 +57,7 @@ export default function Home() {
             .
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 text-center">
-            <div className="text-muted-foreground text-sm">Also available:</div>
+            <div className="text-sm text-muted-foreground">Also available:</div>
             <Link
               href="https://shadcn-vue-phone-input.vercel.app"
               className={buttonVariants({

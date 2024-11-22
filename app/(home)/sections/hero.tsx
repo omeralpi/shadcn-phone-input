@@ -1,3 +1,9 @@
+import Link from "next/link";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { isValidPhoneNumber } from "react-phone-number-input";
+import { z } from "zod";
+
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
@@ -11,11 +17,6 @@ import {
 import { PhoneInput } from "@/components/ui/phone-input";
 import { toast } from "@/components/ui/use-toast";
 import { siteConfig } from "@/config/site";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { isValidPhoneNumber } from "react-phone-number-input";
-import { z } from "zod";
 
 const FormSchema = z.object({
   phone: z
@@ -49,7 +50,7 @@ export default function Hero() {
           <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
             Shadcn Phone Input
           </h1>
-          <p className="text-muted-foreground max-w-[450px]">
+          <p className="max-w-[450px] text-muted-foreground">
             An implementation of a Phone Input component for <b>React</b>, built
             on top of Shadcn UI&apos;s input component.
           </p>
@@ -77,7 +78,7 @@ export default function Hero() {
 
         <div id="try" className="w-full py-8">
           <div className="relative my-4 flex w-full flex-col space-y-2">
-            <div className="preview ring-offset-background focus-visible:ring-ring relative mt-2 flex min-h-[350px] w-full items-start justify-center rounded-md border p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+            <div className="preview relative mt-2 flex min-h-[350px] w-full items-start justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}

@@ -1,3 +1,5 @@
+import { allSnippets, Snippet as SnippetType } from "contentlayer/generated";
+
 import CodeBlock from "@/components/code-block";
 import { Snippet } from "@/components/snippet";
 import {
@@ -6,7 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Snippet as SnippetType, allSnippets } from "contentlayer/generated";
 
 const snippets: SnippetType[] = allSnippets.sort((a, b) => a.order - b.order);
 
@@ -22,7 +23,7 @@ export default function Setup() {
         </h3>
         <p className="text-normal leading-7 [&:not(:first-child)]:mt-6">
           Run the{" "}
-          <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             shadcn-ui
           </code>{" "}
           init command to setup your project:
@@ -35,7 +36,7 @@ export default function Setup() {
         </h3>
         <p className="text-normal leading-7 [&:not(:first-child)]:mt-6">
           Run the{" "}
-          <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             shadcn-ui
           </code>{" "}
           add command to add the necessary shadcn components to your project:

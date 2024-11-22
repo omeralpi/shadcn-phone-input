@@ -1,6 +1,4 @@
-import { makeSource } from "contentlayer/source-files";
-
-import { defineDocumentType } from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 export const Snippet = defineDocumentType(() => ({
   name: "Snippet",
