@@ -1,6 +1,6 @@
 ---
-file: phone-input.tsx
-order: 1
+file: phone-input-react19.tsx
+order: 2
 ---
 
 ```tsx
@@ -37,47 +37,41 @@ interface PhoneInputProps
       "onChange" | "value" | "autoComplete" | "onBlur" | "onFocus" | "style"
     >,
     Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> {
+  ref?: Ref<RPNInput.DefaultInputComponentProps["ref"]>;
   onChange?: (value: RPNInput.Value) => void;
 }
 
-const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
-  React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
-    ({ className, onChange, ...props }, ref) => {
-      return (
-        <RPNInput.default
-          ref={ref}
-          className={cn("flex", className)}
-          flagComponent={FlagComponent}
-          countrySelectComponent={CountrySelect}
-          inputComponent={InputComponent}
-          smartCaret={false}
-          /**
-           * Handles the onChange event.
-           *
-           * react-phone-number-input might trigger the onChange event as undefined
-           * when a valid phone number is not entered. To prevent this,
-           * the value is coerced to an empty string.
-           *
-           * @param {E164Number | undefined} value - The entered value
-           */
-          onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
-          {...props}
-        />
-      );
-    },
+function PhoneInput({ className, onChange, ...props }: PhoneInputProps) {
+  return (
+    <RPNInput.default
+      className={cn("flex", className)}
+      flagComponent={FlagComponent}
+      countrySelectComponent={CountrySelect}
+      inputComponent={InputComponent}
+      smartCaret={false}
+      /**
+       * Handles the onChange event.
+       *
+       * react-phone-number-input might trigger the onChange event as undefined
+       * when a valid phone number is not entered. To prevent this,
+       * the value is coerced to an empty string.
+       *
+       * @param {E164Number | undefined} value - The entered value
+       */
+      onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
+      {...props}
+    />
   );
-PhoneInput.displayName = "PhoneInput";
+}
 
-const InputComponent = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, ...props }, ref) => (
+function InputComponent({ className, ...props }: InputProps) {
+  return (
     <Input
       className={cn("rounded-e-lg rounded-s-none", className)}
       {...props}
-      ref={ref}
     />
-  ),
-);
-InputComponent.displayName = "InputComponent";
+  );
+}
 
 type CountryEntry = { label: string; value: RPNInput.Country | undefined };
 
@@ -88,12 +82,12 @@ type CountrySelectProps = {
   onChange: (country: RPNInput.Country) => void;
 };
 
-const CountrySelect = ({
+function CountrySelect({
   disabled,
   value: selectedCountry,
   options: countryList,
   onChange,
-}: CountrySelectProps) => {
+}: CountrySelectProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -140,19 +134,19 @@ const CountrySelect = ({
       </PopoverContent>
     </Popover>
   );
-};
+}
 
 interface CountrySelectOptionProps extends RPNInput.FlagProps {
   selectedCountry: RPNInput.Country;
   onChange: (country: RPNInput.Country) => void;
 }
 
-const CountrySelectOption = ({
+function CountrySelectOption({
   country,
   countryName,
   selectedCountry,
   onChange,
-}: CountrySelectOptionProps) => {
+}: CountrySelectOptionProps) {
   return (
     <CommandItem className="gap-2" onSelect={() => onChange(country)}>
       <FlagComponent country={country} countryName={countryName} />
@@ -163,9 +157,9 @@ const CountrySelectOption = ({
       />
     </CommandItem>
   );
-};
+}
 
-const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
+function FlagComponent({ country, countryName }: RPNInput.FlagProps) {
   const Flag = flags[country];
 
   return (
@@ -173,7 +167,7 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
       {Flag && <Flag title={countryName} />}
     </span>
   );
-};
+}
 
 export { PhoneInput };
 ```

@@ -76,18 +76,26 @@ export default function Setup() {
           </h3>
           <Accordion type="single" collapsible defaultValue={snippets[0].file}>
             {snippets.map((snippet) => (
-              <AccordionItem key={snippet.slug} value={snippet.file}>
-                <AccordionTrigger id={snippet.file}>
-                  <code>{snippet.file}</code>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <Snippet snippet={snippet} />
-                </AccordionContent>
-              </AccordionItem>
+              <SnippetAccordionItem key={snippet.slug} snippet={snippet} />
             ))}
           </Accordion>
         </div>
       </div>
     </section>
+  );
+}
+
+function SnippetAccordionItem({ snippet }: { snippet: SnippetType }) {
+  const { file } = snippet;
+
+  return (
+    <AccordionItem value={file}>
+      <AccordionTrigger id={file}>
+        <code>{file}</code>
+      </AccordionTrigger>
+      <AccordionContent>
+        <Snippet snippet={snippet} />
+      </AccordionContent>
+    </AccordionItem>
   );
 }
