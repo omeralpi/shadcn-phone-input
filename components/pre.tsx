@@ -1,6 +1,8 @@
-import { cn } from "@/lib/utils";
-import { Check, Copy } from "lucide-react";
 import React from "react";
+import { Check, Copy } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
 import { Button } from "./ui/button";
 
 export default function Pre({
@@ -46,7 +48,7 @@ export default function Pre({
       <pre
         ref={ref}
         className={cn(
-          "border-border overflow-auto rounded-lg border bg-zinc-950 p-4 text-sm text-white/80 dark:bg-zinc-900",
+          "overflow-auto rounded-lg border border-border bg-zinc-950 p-4 text-sm text-white/80 dark:bg-zinc-900",
           className,
         )}
         {...props}

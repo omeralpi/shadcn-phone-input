@@ -2,6 +2,7 @@
   "name": "shadcn-phone-input",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@9.14.2",
   "scripts": {
     "dev": "next dev",
     "build": "contentlayer build && next build",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@types/eslint": "^8.56.7",
     "@types/node": "20.12.7",
     "@types/react": "18.2.78",
@@ -62,8 +64,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "postcss": "8.4.38",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.13",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "rehype": "^13.0.1",
     "rehype-pretty-code": "^0.13.1",
     "shiki": "^1.3.0",
