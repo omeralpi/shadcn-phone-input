@@ -1,3 +1,9 @@
+import Link from "next/link";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { isValidPhoneNumber } from "react-phone-number-input";
+import { z } from "zod";
+
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
@@ -11,11 +17,6 @@ import {
 import { PhoneInput } from "@/components/ui/phone-input";
 import { toast } from "@/components/ui/use-toast";
 import { siteConfig } from "@/config/site";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { isValidPhoneNumber } from "react-phone-number-input";
-import { z } from "zod";
 
 const FormSchema = z.object({
   phone: z

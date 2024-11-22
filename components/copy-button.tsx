@@ -1,7 +1,9 @@
-import { cn } from "@/lib/utils";
-import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import { Check, Copy } from "lucide-react";
 import { useCallback, useState } from "react";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { Check, Copy } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
 import { Button } from "./ui/button";
 
 export default function CopyButton({

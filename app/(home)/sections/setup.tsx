@@ -1,3 +1,5 @@
+import { allSnippets, Snippet as SnippetType } from "contentlayer/generated";
+
 import CodeBlock from "@/components/code-block";
 import { Snippet } from "@/components/snippet";
 import {
@@ -6,7 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Snippet as SnippetType, allSnippets } from "contentlayer/generated";
 
 const snippets: SnippetType[] = allSnippets.sort((a, b) => a.order - b.order);
 

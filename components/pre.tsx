@@ -1,6 +1,8 @@
-import { cn } from "@/lib/utils";
-import { Check, Copy } from "lucide-react";
 import React from "react";
+import { Check, Copy } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
 import { Button } from "./ui/button";
 
 export default function Pre({
