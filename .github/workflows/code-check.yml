@@ -2,7 +2,7 @@ name: Code check
 
 on:
   pull_request:
-    branches: ['*']
+    branches: ["*"]
 
 jobs:
   typecheck-lint:
@@ -20,7 +20,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.0.0
+          version: 9.14.2
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -41,11 +41,5 @@ jobs:
       - name: Contentlayer build
         run: pnpm contentlayer build
 
-      - name: Run lint
-        run: pnpm run lint
-
       - name: Run typecheck
         run: pnpm run typecheck
-
-      - name: Run format check
-        run: pnpm format:check

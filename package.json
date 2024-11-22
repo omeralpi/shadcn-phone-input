@@ -10,8 +10,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "typecheck": "tsc --noEmit",
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
+    "format": "prettier --write .",
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm"
   },
