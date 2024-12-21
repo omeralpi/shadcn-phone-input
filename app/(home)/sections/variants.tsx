@@ -7,6 +7,15 @@ import {
 } from "react-phone-number-input";
 import tr from "react-phone-number-input/locale/tr";
 
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { PhoneInput } from "@/components/ui/phone-input";
 
 export default function Variants() {
@@ -127,6 +136,44 @@ export default function Variants() {
                   Country code: {country && getCountryCallingCode(country)}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full">
+          <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
+            Open in dialog
+          </h3>
+          <div className="preview relative mt-2 flex min-h-[200px] w-full items-center justify-center rounded-md border p-10 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+            <div>
+              <Dialog>
+                <DialogTrigger>
+                  <Button>Open Modal</Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Phone Input</DialogTitle>
+                    <DialogDescription>Enter a phone number</DialogDescription>
+                  </DialogHeader>
+                  <PhoneInput
+                    value={phoneNumber}
+                    onChange={setPhoneNumber}
+                    onCountryChange={setCountry}
+                    placeholder="Enter a phone number"
+                  />
+                  <div className="mt-4 space-y-2 text-sm">
+                    <div>
+                      National: {phoneNumber && formatPhoneNumber(phoneNumber)}
+                    </div>
+                    <div>
+                      International:{" "}
+                      {phoneNumber && formatPhoneNumberIntl(phoneNumber)}
+                    </div>
+                    <div>
+                      Country code: {country && getCountryCallingCode(country)}
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
