@@ -28,7 +28,7 @@ export default function Setup() {
           </code>{" "}
           init command to setup your project:
         </p>
-        <CodeBlock value="npx shadcn-ui@latest init" className="mt-2" />
+        <CodeBlock value="npx shadcn@latest init" className="mt-2" />
       </div>
       <div className="w-full">
         <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
@@ -37,14 +37,14 @@ export default function Setup() {
         <p className="text-normal leading-7 [&:not(:first-child)]:mt-6">
           Run the{" "}
           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-            shadcn-ui
+            shadcn
           </code>{" "}
           add command to add the necessary shadcn components to your project:
         </p>
         <div data-rehype-pretty-code-fragment="">
           <CodeBlock
             className="mt-2"
-            value={`npx shadcn-ui@latest add input\nnpx shadcn-ui@latest add button\nnpx shadcn-ui@latest add command\nnpx shadcn-ui@latest add toast\nnpx shadcn-ui@latest add popover\nnpx shadcn-ui@latest add scroll-area`}
+            value={`npx shadcn@latest add input\nnpx shadcn@latest add button\nnpx shadcn@latest add command\nnpx shadcn@latest add toast\nnpx shadcn@latest add popover\nnpx shadcn@latest add scroll-area`}
           />
         </div>
       </div>
