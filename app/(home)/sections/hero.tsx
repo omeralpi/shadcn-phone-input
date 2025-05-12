@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { FormInDialogExample } from "@/components/examples/form-in-dialog-example";
+import { FormInSheetExample } from "@/components/examples/form-in-sheet-example";
 import { StandaloneFormExample } from "@/components/examples/standalone-form-dialog-example";
 import { buttonVariants } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -49,12 +50,16 @@ export default function Hero() {
                     Standalone Form
                   </TabsTrigger>
                   <TabsTrigger value="dialog-form">Form in Dialog</TabsTrigger>
+                  <TabsTrigger value="sheet-form">Form in Sheet</TabsTrigger>
                 </TabsList>
                 <TabsContent value="standalone-form">
                   <StandaloneFormExample />
                 </TabsContent>
                 <TabsContent value="dialog-form">
                   <FormInDialogExample />
+                </TabsContent>
+                <TabsContent value="sheet-form">
+                  <FormInSheetExample />
                 </TabsContent>
               </Tabs>
             </div>
