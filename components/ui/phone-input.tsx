@@ -86,8 +86,10 @@ const CountrySelect = ({
 }: CountrySelectProps) => {
   const scrollAreaRef = React.useRef<HTMLDivElement>(null);
   const [searchValue, setSearchValue] = React.useState("");
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
-    <Popover>
+    <Popover open={isOpen} onOpenChange={setIsOpen} modal>
       <PopoverTrigger asChild>
         <Button
           type="button"
@@ -138,6 +140,7 @@ const CountrySelect = ({
                       countryName={label}
                       selectedCountry={selectedCountry}
                       onChange={onChange}
+                      onSelectComplete={() => setIsOpen(false)}
                     />
                   ) : null,
                 )}
@@ -153,6 +156,7 @@ const CountrySelect = ({
 interface CountrySelectOptionProps extends RPNInput.FlagProps {
   selectedCountry: RPNInput.Country;
   onChange: (country: RPNInput.Country) => void;
+  onSelectComplete: () => void;
 }
 
 const CountrySelectOption = ({
@@ -160,9 +164,16 @@ const CountrySelectOption = ({
   countryName,
   selectedCountry,
   onChange,
+  onSelectComplete,
 }: CountrySelectOptionProps) => {
   return (
-    <CommandItem className="gap-2" onSelect={() => onChange(country)}>
+    <CommandItem
+      className="gap-2"
+      onSelect={() => {
+        onChange(country);
+        onSelectComplete();
+      }}
+    >
       <FlagComponent country={country} countryName={countryName} />
       <span className="flex-1 text-sm">{countryName}</span>
       <span className="text-sm text-foreground/50">{`+${RPNInput.getCountryCallingCode(country)}`}</span>
