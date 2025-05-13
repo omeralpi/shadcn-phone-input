@@ -31,7 +31,7 @@ type PhoneInputProps = Omit<
 
 const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
   React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
-    ({ className, onChange, ...props }, ref) => {
+    ({ className, onChange, value, ...props }, ref) => {
       return (
         <RPNInput.default
           ref={ref}
@@ -40,6 +40,7 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
           countrySelectComponent={CountrySelect}
           inputComponent={InputComponent}
           smartCaret={false}
+          value={value || undefined}
           /**
            * Handles the onChange event.
            *
@@ -166,14 +167,13 @@ const CountrySelectOption = ({
   onChange,
   onSelectComplete,
 }: CountrySelectOptionProps) => {
+  const handleSelect = () => {
+    onChange(country);
+    onSelectComplete();
+  };
+
   return (
-    <CommandItem
-      className="gap-2"
-      onSelect={() => {
-        onChange(country);
-        onSelectComplete();
-      }}
-    >
+    <CommandItem className="gap-2" onSelect={handleSelect}>
       <FlagComponent country={country} countryName={countryName} />
       <span className="flex-1 text-sm">{countryName}</span>
       <span className="text-sm text-foreground/50">{`+${RPNInput.getCountryCallingCode(country)}`}</span>
