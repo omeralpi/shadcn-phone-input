@@ -105,6 +105,24 @@ const FormSchema = z.object({
 });
 ```
 
+## Known Issues
+
+### Server-Side Rendering (SSR)
+
+The `PhoneInput` component must be used in a **Client Component**. If you see this error:
+
+```
+TypeError: Super expression must either be null or a function
+```
+
+Add `"use client"` to the top of your file:
+
+```tsx
+"use client";
+```
+
+This is required because `react-phone-number-input` uses browser APIs that aren't available during SSR.
+
 ## Documentation
 
 You can find out more about the API and implementation in the
