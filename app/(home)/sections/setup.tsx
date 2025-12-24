@@ -44,7 +44,7 @@ export default function Setup() {
         <div data-rehype-pretty-code-fragment="">
           <CodeBlock
             className="mt-2"
-            value={`npx shadcn@latest add input\nnpx shadcn@latest add button\nnpx shadcn@latest add command\nnpx shadcn@latest add toast\nnpx shadcn@latest add popover\nnpx shadcn@latest add scroll-area`}
+            value={`npx shadcn@latest add input button command toast popover scroll-area`}
           />
         </div>
       </div>
