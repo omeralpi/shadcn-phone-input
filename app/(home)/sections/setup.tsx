@@ -1,6 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { allSnippets, Snippet as SnippetType } from "contentlayer/generated";
 
-import CodeBlock from "@/components/code-block";
+import CodeBlock, { PackageManager } from "@/components/code-block";
 import { Snippet } from "@/components/snippet";
 import {
   Accordion,
@@ -12,6 +15,8 @@ import {
 const snippets: SnippetType[] = allSnippets.sort((a, b) => a.order - b.order);
 
 export default function Setup() {
+  const [selectedPm, setSelectedPm] = useState<PackageManager>("pnpm");
+
   return (
     <section id="setup" className="w-full max-w-5xl py-8">
       <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
@@ -28,7 +33,17 @@ export default function Setup() {
           </code>{" "}
           init command to setup your project:
         </p>
-        <CodeBlock value="npx shadcn@latest init" className="mt-2" />
+        <CodeBlock
+          className="mt-2"
+          selectedPm={selectedPm}
+          onPmChange={setSelectedPm}
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest init",
+            npm: "npx shadcn@latest init",
+            yarn: "yarn dlx shadcn@latest init",
+            bun: "bunx --bun shadcn@latest init",
+          }}
+        />
       </div>
       <div className="w-full">
         <h3 className="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
@@ -44,7 +59,34 @@ export default function Setup() {
         <div data-rehype-pretty-code-fragment="">
           <CodeBlock
             className="mt-2"
-            value={`npx shadcn@latest add input\nnpx shadcn@latest add button\nnpx shadcn@latest add command\nnpx shadcn@latest add toast\nnpx shadcn@latest add popover\nnpx shadcn@latest add scroll-area`}
+            selectedPm={selectedPm}
+            onPmChange={setSelectedPm}
+            commands={{
+              pnpm: `pnpm dlx shadcn@latest add input
+pnpm dlx shadcn@latest add button
+pnpm dlx shadcn@latest add command
+pnpm dlx shadcn@latest add toast
+pnpm dlx shadcn@latest add popover
+pnpm dlx shadcn@latest add scroll-area`,
+              npm: `npx shadcn@latest add input
+npx shadcn@latest add button
+npx shadcn@latest add command
+npx shadcn@latest add toast
+npx shadcn@latest add popover
+npx shadcn@latest add scroll-area`,
+              yarn: `yarn dlx shadcn@latest add input
+yarn dlx shadcn@latest add button
+yarn dlx shadcn@latest add command
+yarn dlx shadcn@latest add toast
+yarn dlx shadcn@latest add popover
+yarn dlx shadcn@latest add scroll-area`,
+              bun: `bunx --bun shadcn@latest add input
+bunx --bun shadcn@latest add button
+bunx --bun shadcn@latest add command
+bunx --bun shadcn@latest add toast
+bunx --bun shadcn@latest add popover
+bunx --bun shadcn@latest add scroll-area`,
+            }}
           />
         </div>
       </div>
@@ -53,8 +95,15 @@ export default function Setup() {
           Install necessary React Phone Number Input package:
         </h3>
         <CodeBlock
-          value={"npm install react-phone-number-input"}
           className="mt-2"
+          selectedPm={selectedPm}
+          onPmChange={setSelectedPm}
+          commands={{
+            pnpm: "pnpm add react-phone-number-input",
+            npm: "npm install react-phone-number-input",
+            yarn: "yarn add react-phone-number-input",
+            bun: "bun add react-phone-number-input",
+          }}
         />
       </div>
       <div className="w-full">
